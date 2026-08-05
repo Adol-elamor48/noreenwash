@@ -19,7 +19,7 @@
     <link rel="alternate" hreflang="ar-sa" href="https://noreenwash.com/">
     <link rel="alternate" hreflang="ar" href="https://noreenwash.com/">
 
-    <!-- Favicon / Site Icon (يظهر بجانب اسم الموقع في نتائج البحث بجوجل) -->
+    <!-- Favicon / Site Icon -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="favicon.svg">
 
@@ -43,7 +43,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Schema.org Structured Data for Local SEO (Google Knowledge Graph) -->
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,13 +86,7 @@
       "sameAs": [
         "https://wa.me/966569047335"
       ],
-      "description": "مغسلة نورين تقدم خدمات غسيل وتلميع السيارات المتنقلة بالبخار عند باب المنزل أو مكان العمل في جدة.",
-      "makesOffer": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "غسيل سيارات متنقل عند الباب" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "غسيل خارجي بالبخار" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "غسيل داخلي وتعقيم بالبخار" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "تلميع سيارات احترافي" } }
-      ]
+      "description": "مغسلة نورين تقدم خدمات غسيل وتلميع السيارات المتنقلة بالبخار عند باب المنزل أو مكان العمل في جدة."
     }
     </script>
 
@@ -133,6 +127,19 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* --- تأثيرات الحركة والظهور التدريجي (Fade-in & Slide Up) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Buttons Styling */
@@ -256,11 +263,11 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -529,9 +536,54 @@
             font-size: 1.15rem;
         }
 
+        /* Comparison Section (الفرق بين البخار والماء) */
+        .comparison {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .comp-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px;
+            transition: 0.3s;
+        }
+
+        .comp-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+        }
+
+        .comp-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comp-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
         /* Why Us Section */
         .why-us {
             padding: 100px 0;
+            background-color: var(--bg-card);
         }
 
         .features-grid {
@@ -541,7 +593,7 @@
         }
 
         .feature-card {
-            background-color: var(--bg-card);
+            background-color: var(--bg-main);
             border: 1px solid var(--border-color);
             padding: 22px 25px;
             border-radius: 12px;
@@ -693,7 +745,7 @@
             transform: scale(1.15);
         }
 
-        /* Mobile Styles Optimization (تحسين العرض والتجربة على التلفون بدون تغيير هيكل أو أسماء) */
+        /* Mobile Styles Optimization */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 12px 0;
@@ -705,7 +757,6 @@
 
             .logo span {
                 display: none;
-                /* إخفاء الجملة الجانبية في الشاشات الصغيرة جداً لمنع التداخل مع القائمة */
             }
 
             .nav-links {
@@ -820,7 +871,7 @@
                 <li><a href="#services">خدماتنا</a></li>
                 <li><a href="#gallery">قبل وبعد</a></li>
                 <li><a href="#pricing">الأسعار</a></li>
-                <li><a href="#about">من نحن</a></li>
+                <li><a href="#comparison">لماذا البخار؟</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
             </ul>
             <a href="https://wa.me/966569047335" class="btn btn-gold header-wa-btn" target="_blank">
@@ -829,15 +880,13 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- 1. الرئيسية (Hero Section) -->
     <section class="hero" id="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content reveal">
                 <span class="brand-badge"><i class="fas fa-truck-moving"></i> خدمة متنقلة تلميع وغسيل عند الباب |
                     جدة</span>
-
                 <div class="hero-brand-title">نورين</div>
-
                 <h1>أفضل خدمة غسيل سيارات متنقلة تجيك لحد بيتك!</h1>
                 <p>لا داعي للانتظار في المغاسل أو زحمة الطريق. في <strong>مغسلة نورين المتنقلة</strong>، نصلك أينما كنت
                     في جدة بأحدث معدات غسيل وتلميع السيارات بالبخار لنعطيك العناية الملكية التي تستحقها سيارتك أمام
@@ -854,33 +903,33 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- 2. خدماتنا (Services Section) -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>خدمات نورين المتنقلة الاحترافية</h2>
                 <p class="section-subtitle">نصلك في المكان والوقت الذي يناسبك مع كامل المعدات والمواد</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-truck-pickup"></i></div>
                     <h3>خدمة مغسلة متنقلة (عند الباب)</h3>
                     <p>نصل بسيارة الخدمة المجهزة بالكامل لموقعك بجدة (البيت، العمل، أو الاستراحة)، دون الحاجة لتوفير ماء
                         أو كهرباء من طرفك.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-shower"></i></div>
                     <h3>غسيل خارجي بالبخار</h3>
                     <p>تنظيف وتلميع الهيكل الخارجي بالكامل عند منزلكم بالبخار الحراري الجاف، لإزالة أعتى البقع والترسبات
                         وحماية طلاء السيارة.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-car-side"></i></div>
                     <h3>غسيل داخلي وتعقيم بالبخار</h3>
-                    <p>تنظيف عميق للمراتب، السقف، الديكورات والأرضيات في موقعك، مع تعقيم شامل بقوة البخار للقضاء على
+                    <p>تنظيف عميق للمراتب، السقف، الديكورات والأرضيات في موقعك، مع تعقيم شامل بقوة البخار القضاء على
                         الروائح والبكتيريا.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon"><i class="fas fa-gem"></i></div>
                     <h3>تلميع احترافي بموقعك</h3>
                     <p>استعادة بريق السيارة واللمعة الأصلية من خلال خدمات التلميع الساطع الخارجي والداخلي المتنقلة بأعلى
@@ -890,16 +939,16 @@
         </div>
     </section>
 
-    <!-- Gallery Section (4 Before / After Work Samples) -->
+    <!-- 3. قبل وبعد (Gallery Section) -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>معرض أعمال نورين (قبل وبعد)</h2>
                 <p class="section-subtitle">نتائج احترافية ننجزها لك أمام باب منزلك عبر ورشتنا المتنقلة</p>
             </div>
             <div class="gallery-grid">
                 <!-- Work Sample 1 -->
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <div class="before-after-container">
                         <div class="ba-box">
                             <img src="images/work-before-1.png" alt="السيارة قبل غسيل وتلميع نورين المتنقل جدة"
@@ -916,7 +965,7 @@
                 </div>
 
                 <!-- Work Sample 2 -->
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <div class="before-after-container">
                         <div class="ba-box">
                             <img src="images/work-before-2.png" alt="مقاعد السيارة قبل التنظيف بالبخار مغسلة نورين"
@@ -933,7 +982,7 @@
                 </div>
 
                 <!-- Work Sample 3 -->
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <div class="before-after-container">
                         <div class="ba-box">
                             <img src="images/work-before-3.png" alt="محرك السيارة قبل الغسيل بالبخار مغسلة نورين جدة"
@@ -950,7 +999,7 @@
                 </div>
 
                 <!-- Work Sample 4 -->
-                <div class="gallery-item">
+                <div class="gallery-item reveal">
                     <div class="before-after-container">
                         <div class="ba-box">
                             <img src="images/work-before-4.png" alt="جنوط السيارة قبل التلميع مغسلة نورين المتنقلة جدة"
@@ -969,14 +1018,14 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- 4. الأسعار (Pricing Section) -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>الأسعار والتقدير</h2>
                 <p class="section-subtitle">أسعار عادلة ومنافسة تشمل انتقال سيارة الخدمة المتنقلة حتى موقعك</p>
             </div>
-            <div class="pricing-box">
+            <div class="pricing-box reveal">
                 <p class="pricing-info">نحدد السعر بكل شفافية بناءً على تحديد موقعك ومعاينة نوع وحجم السيارة، حيث يتفاوت
                     السعر حسب: <strong>حجم السيارة، حالتها، ونوع الخدمة المطلوبة.</strong></p>
                 <div class="car-sizes">
@@ -1000,43 +1049,70 @@
         </div>
     </section>
 
+    <!-- 5. الأقسام الأخرى (لماذا البخار / الفرق بين البخار والماء) -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>الفرق بين الغسيل بالبخار والغسيل بالماء</h2>
+                <p class="section-subtitle">تعرف لماذا يعتبر خيار البخار المتنقل هو الأمان المطلق لسيارتك</p>
+            </div>
+            <div class="comp-grid">
+                <div class="comp-card reveal">
+                    <h3><i class="fas fa-shield-alt"></i> أمان فائق للدهان</h3>
+                    <p>يعتبر غسيل السيارات بالبخار خيارك الأمثل لحماية طلاء سيارتك؛ فهو يوفر أماناً أعلى بكثير مقارنة
+                        بالطرق التقليدية العنيفة.</p>
+                    <p>الغسيل التقليدي والفرك الخشن بالإسفنجات قد يحمل حبيبات رمل دقيقة تسبب خدوشاً بالغة، بينما يعتمد
+                        البخار على الحرارة اللطيفة والترطيب العميق لتفكيك الأوساخ بهدوء وعناية تامة دون أي احتكاك ضار.
+                    </p>
+                </div>
+                <div class="comp-card reveal">
+                    <h3><i class="fas fa-clock"></i> راحة تامة عند باب منزلك</h3>
+                    <p>من خلال خدماتنا كـ <strong>مغسلة سيارات متنقلة في جدة</strong>، نحفر لك طريق الراحة وتوفر عليك
+                        عناء الانتظار والزحام.</p>
+                    <p>نحن نأتيك إلى موقعك أينما كنت في كافة أحياء جدة ومعداتنا جاهزة تماماً لمنحك تلميع سيارات مميز
+                        واهتمام فائق وواضح بكل تفصيلة صغيرة وكبيرة في سيارتك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Us Section -->
     <section class="why-us">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>لماذا تختار مغسلة نورين؟</h2>
                 <p class="section-subtitle">نوفر عليك العناء والوقت لتبدو سيارتك كأنها جديدة تماماً</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-house-user"></i>
                     <h4>خدمة متنقلة تجيك للبيت</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-smog"></i>
                     <h4>تقنيات تنظيف بالبخار الحراري</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-clock"></i>
                     <h4>توفير وقتك وجهدك بالكامل</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-tags"></i>
                     <h4>أسعار عادلة ومنافسة</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-search-plus"></i>
                     <h4>عناية فائقة بأدق التفاصيل</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-user-shield"></i>
                     <h4>فريق عمل أمين ومحترف</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-shield-alt"></i>
                     <h4>مواد حماية وتلميع عالمية</h4>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <i class="fas fa-smile"></i>
                     <h4>ضمان رضا العميل التام</h4>
                 </div>
@@ -1047,10 +1123,10 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>من نحن - مغسلة نورين</h2>
             </div>
-            <div class="about-text">
+            <div class="about-text reveal">
                 <p>تعتبر <strong>نورين</strong> واحدة من الخدمات الرائدة في مجال <strong>غسيل وتلميع السيارات المتنقلة
                         بمدينة جدة</strong>. نحن نأتي إليك أينما كنت بسيارات مجهزة بالكامل بأحدث الأجهزة والتقنيات التي
                     تعمل بالبخار، ومزودة بأفضل المنظفات والمواد العالمية الآمنة على طلاء وفرش سيارتك.</p>
@@ -1064,11 +1140,11 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal">
                 <h2>احجز خدمتك المتنقلة الآن</h2>
                 <p class="section-subtitle">أرسل لنا موقعك على الواتساب وسنصلك في أسرع وقت ممكن</p>
             </div>
-            <div class="contact-box">
+            <div class="contact-box reveal">
                 <ul class="contact-info-list">
                     <li><i class="fas fa-phone"></i> <strong>الاتصال المباشر:</strong> 0569047335</li>
                     <li><i class="fab fa-whatsapp"></i> <strong>واتساب الخدمة المتنقلة:</strong> 0569047335</li>
@@ -1101,7 +1177,9 @@
             <p style="color: var(--text-muted); font-size: 0.95rem;">جدة - المملكة العربية السعودية | هاتف: 0569047335 |
                 ساعات العمل: 8:00 ص - 12:00 م</p>
             <div class="copyright">
-                جميع الحقوق محفوظة &copy; 2026 مغسلة نورين
+                جميع الحقوق محفوظة &copy; 2026 مغسلة نورين<br>
+                Developed by <a href="https://wa.me/201016448076" target="_blank"
+                    style="color: var(--primary-gold); font-weight: 800; font-size: 1.08rem;">Adel</a>
             </div>
         </div>
     </footer>
@@ -1112,7 +1190,7 @@
             title="تواصل عبر الواتساب">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:0569047335" class="float-btn float-phone" title="اتصل بنا">
+        <a href="tel:0569047335" class="float-btn float-phone" title="اتصل يصلك مندوبنا">
             <i class="fas fa-phone"></i>
         </a>
     </div>
@@ -1132,6 +1210,25 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+
+        // --- كود الحركات التلقائية عند التمرير (Scroll Animation) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
