@@ -211,7 +211,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(11, 11, 11, 0.92);
+            background: rgba(11, 11, 11, 0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -693,8 +693,21 @@
             transform: scale(1.15);
         }
 
-        /* Mobile Styles Optimization */
+        /* Mobile Styles Optimization (تحسين العرض والتجربة على التلفون بدون تغيير هيكل أو أسماء) */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 12px 0;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .logo span {
+                display: none;
+                /* إخفاء الجملة الجانبية في الشاشات الصغيرة جداً لمنع التداخل مع القائمة */
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -703,9 +716,10 @@
                 width: 100%;
                 background-color: var(--bg-main);
                 flex-direction: column;
-                padding: 25px;
+                padding: 20px;
                 text-align: center;
                 border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
             }
 
             .nav-links.active {
@@ -716,39 +730,63 @@
                 display: block;
             }
 
+            .hero {
+                min-height: 90vh;
+                padding-top: 80px;
+            }
+
             .hero-brand-title {
-                font-size: 3.8rem;
+                font-size: 3.4rem;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                line-height: 1.35;
             }
 
             .hero p {
-                font-size: 1.05rem;
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .brand-badge {
+                font-size: 0.9rem;
+                padding: 6px 16px;
             }
 
             .header-wa-btn {
                 display: none;
             }
 
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
             .contact-info-list {
                 text-align: center;
+                font-size: 1rem;
             }
 
             .contact-info-list li {
                 justify-content: center;
+                flex-direction: column;
+                gap: 5px;
             }
 
             .floating-btns {
                 bottom: 20px;
                 left: 20px;
+                gap: 10px;
             }
 
             .float-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
             }
         }
     </style>
