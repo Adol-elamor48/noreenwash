@@ -613,6 +613,57 @@
             font-weight: 700;
         }
 
+        /* --- قسم تقييمات جوجل (Google Reviews Section) --- */
+        .google-reviews-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-main) 100%);
+        }
+
+        .reviews-card-box {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 50px 30px;
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews-card-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #F3C623, #D4AF37);
+        }
+
+        .reviews-card-box h3 {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .reviews-card-box p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .rating-stars {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
         /* About Section */
         .about {
             padding: 100px 0;
@@ -1095,6 +1146,22 @@
                     <i class="fas fa-smile"></i>
                     <h4>ضمان رضا العميل التام</h4>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تقييمات جوجل (Google Reviews Section Added) -->
+    <section class="google-reviews-section">
+        <div class="container">
+            <div class="reviews-card-box reveal">
+                <h3>ما رأيك في خدماتنا؟ 🚗⭐</h3>
+                <p>نحن نعتز بخدمتكم في جدة، يسعدنا جداً تقييم تجربتكم معنا على جوجل ومشاركة رأيكم لدعمنا:</p>
+                <div class="rating-stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <a href="https://g.page/r/CZL2UJWwJ-loEBM/review" class="btn btn-gold" target="_blank">
+                    <i class="fas fa-star"></i> اضغط هنا لتقييمنا على جوجل
+                </a>
             </div>
         </div>
     </section>
